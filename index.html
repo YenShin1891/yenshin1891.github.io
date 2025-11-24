@@ -5,10 +5,13 @@
   <title>Yen Shin (신예은)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
-        content="Yen (Yeeun) Shin – climate action with machine learning, algorithmic fairness, and the social impacts of AI.">
+        content="Yen Shin – climate action with machine learning, algorithmic fairness, and the social impacts of AI.">
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      /* Use Inter from Google Fonts as primary, then fall back to Helvetica/Arial/system fonts */
+      font-family: "Inter", "Helvetica Neue", Helvetica, Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
       margin: 0;
       padding: 0;
       background: #ffffff;
@@ -101,23 +104,66 @@
     .pub-venue {
       font-style: italic;
     }
+    /* Profile image styles */
+    .profile-header {
+      display: flex;
+      align-items: center;
+      /* larger gap so text isn't too close to the image */
+      gap: 28px;
+      /* more space below the header */
+      margin-bottom: 1rem;
+      /* keep image on the left — don't wrap into column */
+      flex-wrap: nowrap;
+    }
+
+    /* allow the text block to shrink properly so it doesn't push the image to the top */
+    .profile-header > div {
+      flex: 1 1 auto;
+      min-width: 0; /* enables text truncation/wrapping correctly inside flex */
+    }
+
+    .profile-img {
+      /* responsive: min 96px, up to 200px on larger screens */
+      width: clamp(96px, 18vw, 200px);
+      height: clamp(96px, 18vw, 200px);
+      object-fit: cover;
+      border-radius: 9999px;
+      border: 2px solid #e5e7eb;
+      flex: 0 0 auto;
+    }
+
+    /* On very small viewports, reduce the image so layout doesn't overflow */
+    @media (max-width: 420px) {
+      .profile-img {
+        width: clamp(64px, 20vw, 120px);
+        height: clamp(64px, 20vw, 120px);
+      }
+    }
+    /* default paragraph spacing for better breathing room */
+    p {
+      margin-top: 0.9rem;
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- short vibe line -->
-  <p class="small">Thinking about climate, fairness, and real-world impacts of AI.</p>
+  <!-- short vibe line + profile -->
+  <div class="profile-header">
+    <img class="profile-img" src="assets/profile.jpeg" alt="Picture of Yen" onerror="this.onerror=null;this.src='https://via.placeholder.com/160';">
+    <div>
+      <h1>Yen Shin <span class="small">(신예은)</span></h1>
 
-  <h1>Yen (Yeeun) Shin <span class="small">(신예은)</span></h1>
-
-  <p class="tagline">
-    I am an undergraduate student at the
-    <a href="https://www.kaist.ac.kr/" target="_blank" rel="noopener noreferrer">Korea Advanced Institute of Science and Technology (KAIST)</a>,
-    majoring in <strong>Computer Science</strong> and <strong>Science and Technology Policy</strong>.<br>
-    From Spring 2026, I will start my M.S. in Computer Science at KAIST, advised by
-    <a href="https://aliceoh9.github.io/" target="_blank" rel="noopener noreferrer">Prof. Alice Oh</a>.
-  </p>
+      <p class="tagline">
+        I am an undergraduate student at the
+        <a href="https://www.kaist.ac.kr/" target="_blank" rel="noopener noreferrer">Korea Advanced Institute of Science and Technology (KAIST)</a>,
+        majoring in <strong>Computer Science</strong> and <strong>Science and Technology Policy</strong>.<br>
+        From spring 2026, I will start my M.S. in Computer Science at KAIST, advised by
+        <a href="https://aliceoh9.github.io/" target="_blank" rel="noopener noreferrer">Prof. Alice Oh</a>.
+      </p>
+    </div>
+  </div>
 
   <p>
     Broadly, I am interested in <strong>climate action with machine learning</strong> and the
@@ -126,11 +172,17 @@
     Who is left out or harmed when LLMs are trained and deployed the way they are today?
   </p>
 
+  <ul class="small">
+    <li>Using ML models to emulate and extend integrated assessment models (IAMs) for climate policy.</li>
+    <li>Algorithmic fairness of LLMs, especially for marginalized groups.</li>
+    <li>Linking technical ML work with policy, governance, and human rights perspectives.</li>
+  </ul>
+
   <p class="links">
-    <a href="mailto:yeeun@kaist.ac.kr">Email</a> /
+    <a href="mailto:yeeun@kaist.ac.kr">yeeun@kaist.ac.kr</a>
     <!-- fill these in when ready -->
-    <a href="#" target="_blank" rel="noopener noreferrer">Google Scholar</a> /
-    <a href="https://www.linkedin.com/in/yen-shin-334992254/" target="_blank" rel="noopener noreferrer">LinkedIn</a> /
+    <!-- <a href="#" target="_blank" rel="noopener noreferrer">Google Scholar</a> -->
+    <a href="https://www.linkedin.com/in/yen-shin-334992254/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     <!-- change the filename if you use a different name -->
     <a href="Yen_Shin_CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
   </p>
@@ -140,7 +192,7 @@
   <h2>Affiliations</h2>
   <ul class="small">
     <li>
-      <strong>KAIST, School of Computing</strong> – Incoming M.S. student in Computer Science  
+      <strong>KAIST</strong> – Incoming M.S. student in Computer Science  
       Advisor: Prof. Alice Oh · starting Spring 2026
     </li>
     <li>
@@ -149,49 +201,31 @@
     </li>
   </ul>
 
-  <h2>Research</h2>
-  <p class="small">
-    A few keywords that describe what I like to work on:
-  </p>
-  <ul class="small">
-    <li>Using ML models to emulate and extend integrated assessment models (IAMs) for climate policy.</li>
-    <li>Algorithmic fairness and unequal harms from LLMs, especially for underrepresented groups.</li>
-    <li>Safety and moderation for harmful mental-health content, including LLM-guided data collection.</li>
-    <li>Linking technical ML work with policy, governance, and human rights perspectives.</li>
-  </ul>
+  
 
   <h2>News</h2>
   <ul class="small news-list">
-    <li><strong>2025</strong> – <em>ML-IAM</em> accepted to the Tackling Climate Change with Machine Learning workshop at NeurIPS 2025.</li>
-    <li><strong>2024</strong> – Suicide content detection preprint posted on JMIR Preprints.</li>
-    <li><strong>2026 (upcoming)</strong> – Starting M.S. in Computer Science at KAIST with Prof. Alice Oh.</li>
+    <li><strong>NOV 2025</strong> – Iterative LLM-Guided Sampling and Expert-annotated Benchmark Corpus for Harmful Suicide Content Detection — accepted at <em>JMIR Medical Informatics</em>.</li>
+    <li><strong>SEP 2025</strong> – <em>ML-IAM</em> accepted to the Tackling Climate Change with Machine Learning workshop at NeurIPS 2025.</li>
   </ul>
 
   <h2>Publications</h2>
   <ol class="small">
     <li>
       <span class="pub-title">ML-IAM: Emulating Integrated Assessment Models With Machine Learning</span><br>
-      <strong>Yen (Yeeun) Shin</strong>, and collaborators<br>
+      <strong>Yen Shin</strong>, Changyoon Lee, Eunsu Kim, Junho Myung, Kiwoong Park, Jiheun Ha, Min-Young Choi, Bomi Kim, Hyun W. Ka, Jung-Hun Woo, Alice Oh, and Haewon McJeon<br>
       <span class="pub-venue">Tackling Climate Change With Machine Learning workshop @ NeurIPS 2025 (poster)</span><br>
       <!-- Add a direct paper / arXiv link when available -->
-      [paper link coming soon]
+      <a href="https://neurips.cc/virtual/2025/loc/san-diego/126964" target="_blank" rel="noopener noreferrer">poster</a>
     </li>
     <li>
       <span class="pub-title">Iterative LLM-Guided Sampling and Expert-annotated Benchmark Corpus for Harmful Suicide Content Detection</span><br>
-      <strong>Yen (Yeeun) Shin</strong>, and collaborators<br>
-      <span class="pub-venue">JMIR Preprints</span><br>
+      Kyumin Park, Myung Jae Baik, Yeongjun Hwang, <strong>Yen Shin</strong>, Hojae Lee, Ruda Lee, Sang Min Lee, Je Young Hannah Sun, Ah Rah Lee, Si Yeun Yoon, Dong-Ho Lee, Jihyung Moon, Jinyeong Bak, Kyunghyun Cho, Jong-Woo Paik, and Sungjoon Park<br>
+      <span class="pub-venue">Accepted at <em>JMIR Medical Informatics</em> — Nov 2025</span><br>
       <a href="https://preprints.jmir.org/preprint/73725" target="_blank" rel="noopener noreferrer">preprint</a>
     </li>
   </ol>
 
-  <h2>Misc</h2>
-  <ul class="small">
-    <li>
-      I care a lot about human rights, social inclusion, and how institutions respond to new technologies.
-      At KAIST, I have been active in student human rights and social inclusion committees.
-    </li>
-    <li>Languages: Korean (native), English (fluent).</li>
-  </ul>
 
   <footer>
     Last updated: Nov 2025 · Built with GitHub Pages
